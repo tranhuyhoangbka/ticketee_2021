@@ -34,6 +34,7 @@ group :development, :test do
   # a dependence of rspec gem
   gem 'rexml', '~> 3.2.4'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do
