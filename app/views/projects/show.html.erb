@@ -4,3 +4,9 @@
 <%= link_to 'Delete Project', project_path(@project), method: :delete,
   data: {conform: 'Are you sure you want to delete this project?'} %>
 <h1><%= @project.description %></h1>
+<header>
+  <h2>Tickets</h2>
+  <ul class="actions">
+    <li><%= link_to 'New Ticket', new_project_ticket_path(@project) %></li>
+  </ul>
+</header>
