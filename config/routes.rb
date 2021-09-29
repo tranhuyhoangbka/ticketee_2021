@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'application#index'
     resources :projects, except: %i(index show)
+    resources :users
   end
   devise_for :users
   root 'projects#index'
