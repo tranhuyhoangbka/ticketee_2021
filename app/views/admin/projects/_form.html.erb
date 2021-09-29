@@ -1,4 +1,4 @@
-<%= bootstrap_form_with model: project, label_errors: true do |form| %>
+<%= bootstrap_form_with model: [:admin, project], label_errors: true do |form| %>
   <%= form.text_field :name %>
   <%= form.text_field :description %> <br>
 
