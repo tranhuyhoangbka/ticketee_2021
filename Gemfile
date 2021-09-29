@@ -64,3 +64,5 @@ gem "bootstrap", "~> 5.1"
 gem "font-awesome-rails", "~> 4.7"
 
 gem "bootstrap_form", "~> 4.5"
+
+gem "devise", "~> 4.8"
