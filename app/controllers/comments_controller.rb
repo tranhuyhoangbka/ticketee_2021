@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_ticket
+  before_action :authenticate_user!, :set_ticket
 
   def create
     @comment = @ticket.comments.build(comment_params)

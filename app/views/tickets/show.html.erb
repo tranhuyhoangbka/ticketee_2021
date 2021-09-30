@@ -46,7 +46,7 @@
   <div class="comments">
     <header><h3>Comments</h3></header>
     <% if @comments.any? %>
-      <% state = nil %>
+      <% state = State.default %>
       <% @comments.each do |comment| %>
         <%= render comment %>
         <% if state != comment.state %>
