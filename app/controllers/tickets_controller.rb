@@ -4,7 +4,8 @@ class TicketsController < ApplicationController
 
   def show
     @comments = @ticket.comments.ordered
-    @comment = @ticket.comments.build
+    @comment = @ticket.comments.build(state: @ticket.state)
+    @states = State.all
   end
 
   def new

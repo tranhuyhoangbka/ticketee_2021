@@ -4,6 +4,7 @@
 
 <%= bootstrap_form_with model: [ticket, comment] do |f| %>
   <%= f.text_area :text %>
+  <%= f.select :state_id, @states.map{|state| [state.name, state.id]} %>
   <br>
   <%= f.primary %>
 <% end %>
