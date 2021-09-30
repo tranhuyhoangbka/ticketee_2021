@@ -4,4 +4,6 @@ class Ticket < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true, length: {minimum: 10, allow_blank: true}
+
+  has_one_attached :attachment
 end
