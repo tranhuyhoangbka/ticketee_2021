@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'projects#index'
   resources :projects, only: %i(index show) do
-    resources :tickets
+    resources :tickets do
+      collection do
+        post :upload_file
+      end
+    end
   end
 end
