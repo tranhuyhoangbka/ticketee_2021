@@ -1,0 +1,9 @@
+<header class="page-header">
+  <h3>New Comment</h3>
+</header>
+
+<%= bootstrap_form_with model: [ticket, comment] do |f| %>
+  <%= f.text_area :text %>
+  <br>
+  <%= f.primary %>
+<% end %>

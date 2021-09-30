@@ -17,4 +17,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  scope path: 'tickets/:ticket_id', as: :ticket do
+    resources :comments, only: %i(create)
+  end
 end

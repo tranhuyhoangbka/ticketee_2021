@@ -3,6 +3,8 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: %i(show edit update destroy)
 
   def show
+    @comments = @ticket.comments.ordered
+    @comment = @ticket.comments.build
   end
 
   def new
