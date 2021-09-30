@@ -17,6 +17,13 @@ class Admin::StatesController < Admin::ApplicationController
     end
   end
 
+  def make_default
+    @state = State.find(params[:id])
+    State.update_all default: false
+    @state.update default: true
+    redirect_to admin_states_path, notice: "#{@state.name} is now the default state."
+  end
+
   private
   def state_params
     params.require(:state).permit(:name, :color)

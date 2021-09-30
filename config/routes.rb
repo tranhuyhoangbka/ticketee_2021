@@ -7,7 +7,11 @@ Rails.application.routes.draw do
         patch :archive
       end
     end
-    resources :states, only: %i(index new create)
+    resources :states, only: %i(index new create) do
+      member do
+        patch :make_default
+      end
+    end
   end
   devise_for :users
   root 'projects#index'
