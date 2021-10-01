@@ -3,7 +3,7 @@ class Ticket < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :state, optional: true
   has_many :comments, dependent: :destroy
-  has_belongs_to_many :watchers, join_table: 'ticket_watchers',
+  has_and_belongs_to_many :watchers, join_table: 'ticket_watchers',
     class_name: 'User'
 
   validates :name, presence: true
