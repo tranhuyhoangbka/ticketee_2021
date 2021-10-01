@@ -11,6 +11,7 @@ import 'jquery'
 import '@popperjs/core'
 import "bootstrap"
 import '../src/dropzone'
+import '../src/tags'
 
 Rails.start()
 Turbolinks.start()

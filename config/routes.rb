@@ -27,5 +27,6 @@ Rails.application.routes.draw do
   end
   scope path: 'tickets/:ticket_id', as: :ticket do
     resources :comments, only: %i(create)
+    delete 'tags/:id/remove', to: 'tags#remove', as: :remove_tag
   end
 end
