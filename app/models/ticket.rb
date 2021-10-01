@@ -12,6 +12,10 @@ class Ticket < ApplicationRecord
 
   has_many_attached :attachments
 
+  searcher do
+    label :tag, from: :tags, field: "name"
+  end
+
   before_create :assign_default_state
   after_create :subscribe_author_to_ticket
 

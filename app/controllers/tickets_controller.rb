@@ -1,7 +1,16 @@
 class TicketsController < ApplicationController
-  before_action :authenticate_user!, except: %i(show)
+  before_action :authenticate_user!, except: %i(show search)
   before_action :set_project
   before_action :set_ticket, only: %i(show edit update destroy watch)
+
+  def search
+    @tickets =  if params[:search].present?
+      @project.tickets.search(params[:search])
+    else
+      @project.tickets
+    end
+    render 'projects/show'
+  end
 
   def show
     @comments = @ticket.comments.ordered

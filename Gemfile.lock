@@ -213,6 +213,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    searcher (6.0.1)
+      activerecord (~> 6.0)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -277,6 +279,7 @@ DEPENDENCIES
   rexml (~> 3.2.4)
   rspec-rails (~> 5.0.0)
   sass-rails (>= 6)
+  searcher (~> 6.0)
   selenium-webdriver
   spring
   sqlite3 (~> 1.4)

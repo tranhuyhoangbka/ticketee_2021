@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       end
       collection do
         post :upload_file
+        get :search
       end
     end
   end
