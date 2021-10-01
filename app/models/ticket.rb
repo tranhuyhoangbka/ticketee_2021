@@ -12,9 +12,14 @@ class Ticket < ApplicationRecord
   has_many_attached :attachments
 
   before_create :assign_default_state
+  after_create :subscribe_author_to_ticket
 
   private
   def assign_default_state
     self.state ||= State.default
+  end
+
+  def subscribe_author_to_ticket
+    self.watchers << author
   end
 end
