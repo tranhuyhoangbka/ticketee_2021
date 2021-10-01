@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   root 'projects#index'
   resources :projects, only: %i(index show) do
     resources :tickets do
+      member do
+        patch :watch
+      end
       collection do
         post :upload_file
       end
