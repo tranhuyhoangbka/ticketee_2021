@@ -19,6 +19,9 @@ class TicketsController < ApplicationController
     if params[:attachments].present?
       @ticket.attachments.attach(params[:attachments])
     end
+    @ticket.tags = params[:tag_names].split(',').map do |tag|
+      Tag.find_or_initialize_by(name: tag.strip)
+    end
     if @ticket.save
       redirect_to [@project, @ticket], notice: 'Ticket has been created.'
     else
@@ -35,6 +38,9 @@ class TicketsController < ApplicationController
       @ticket.attachments.attach(params[:attachments])
     end
     if @ticket.update(ticket_params)
+      @ticket.tags << params[:tag_names].split(',').map do |tag|
+        Tag.find_or_initialize_by(name: tag.strip) unless @ticket.tags.exists?(name: tag.strip)
+      end.compact
       redirect_to [@project, @ticket], notice: 'Ticket has been updated.'
     else
       flash.now[:alert] = 'ticket has not been updated'

@@ -5,6 +5,7 @@ class Ticket < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_and_belongs_to_many :watchers, join_table: 'ticket_watchers',
     class_name: 'User'
+  has_and_belongs_to_many :tags
 
   validates :name, presence: true
   validates :description, presence: true, length: {minimum: 10, allow_blank: true}
