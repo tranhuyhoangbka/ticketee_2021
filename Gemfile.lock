@@ -131,6 +131,7 @@ GEM
     nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.2.3)
     popper_js (2.9.3)
     premailer (1.15.0)
       addressable
@@ -272,6 +273,7 @@ DEPENDENCIES
   font-awesome-rails (~> 4.7)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pg
   premailer-rails (~> 1.11)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
