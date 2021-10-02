@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature 'Users can delete project' do
+  let!(:user) { FactoryBot.create(:user, :admin) }
+
+  before do
+    login_as(user)
+  end
+
   scenario 'Successfully' do
     FactoryBot.create :project, name: 'Visual Studio Code'
     visit '/'
