@@ -61,7 +61,7 @@
               Signed in as <%= current_user.email %>
             </p>
           </div>
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
         <% end %>
       </div>
     </nav>
