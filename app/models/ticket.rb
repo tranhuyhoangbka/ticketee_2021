@@ -12,6 +12,8 @@ class Ticket < ApplicationRecord
 
   has_many_attached :attachments
 
+  delegate :check_name, to: :project, private: true
+
   searcher do
     label :tag, from: :tags, field: "name"
     label :state, from: :state, field: 'name'
