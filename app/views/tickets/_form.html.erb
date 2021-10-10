@@ -1,4 +1,4 @@
-<%= bootstrap_form_with model: [project, ticket] do |form| %>
+<%= bootstrap_form_with model: [project, ticket], label_errors: true do |form| %>
   <%= form.text_field :name %>
   <%= form.text_area :description %>
   <div class="dropzone uploader mb-2" data-url="<%= upload_file_project_tickets_path(project) %>"></div>
