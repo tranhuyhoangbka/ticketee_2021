@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
       flash.now[:alert] = 'Comment has not been created.'
       @project = @ticket.project
       @states = State.all
+      @comments = @ticket.comments.ordered
       render 'tickets/show'
     end
   end

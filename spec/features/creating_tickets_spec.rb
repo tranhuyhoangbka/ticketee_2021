@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can create new tickets' do
   let(:user){FactoryBot.create(:user)}
   let!(:project){FactoryBot.create(:project)}
+  let!(:state) { FactoryBot.create :state, name: "New", default: true }
 
   before do
     login_as user
@@ -17,6 +18,7 @@ RSpec.feature 'Users can create new tickets' do
     expect(page).to have_content 'Ticket has been created.'
     within('.ticket') do
       expect(page).to have_content "Author: #{user.email}"
+      expect(page).to have_content "State: New"
     end
   end
 
