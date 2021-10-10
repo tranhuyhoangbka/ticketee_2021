@@ -15,6 +15,9 @@ RSpec.feature 'Users can create new tickets' do
     fill_in 'Description', with: 'sample Ticket Description'
     click_button 'Create Ticket'
     expect(page).to have_content 'Ticket has been created.'
+    within('.ticket') do
+      expect(page).to have_content "Author: #{user.email}"
+    end
   end
 
   scenario 'when providing invalid attributes' do
@@ -30,5 +33,17 @@ RSpec.feature 'Users can create new tickets' do
     click_button 'Create Ticket'
     expect(page).to have_content 'Ticket has not been created.'
     expect(page).to have_content 'Description is too short'
+  end
+
+  scenario 'with an attachment', js: true do
+    fill_in 'Name', with: 'Sample Ticket Name'
+    fill_in 'Description', with: 'sample Ticket Description'
+    #attach_file "File", "spec/fixtures/speed.txt"
+    attach_file("spec/fixtures/speed.txt", class: 'dz-hidden-input', visible: false)
+    click_button "Create Ticket"
+    expect(page).to have_content "Ticket has been created."
+    within '.ticket .attachments' do
+      expect(page).to have_content 'speed.txt'
+    end
   end
 end
